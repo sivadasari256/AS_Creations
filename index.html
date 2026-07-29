@@ -661,8 +661,10 @@
     .special-copy {
       margin: 0;
       max-width: 54ch;
-      color: #f2b705;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.34);
+      color: #111;
+      background: rgba(255, 244, 220, 0.9);
+      padding: 8px 12px;
+      border-radius: 12px;
       line-height: 1.7;
     }
 
@@ -687,11 +689,31 @@
       border: 1px solid transparent;
     }
 
-    .tag.red { background: rgba(177, 59, 36, 0.12); color: var(--spice); }
-    .tag.green { background: rgba(31, 111, 67, 0.12); color: var(--leaf); }
-    .tag.gold { background: rgba(242, 183, 5, 0.16); color: #8d6405; }
-    .tag.ink { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.15); }
-    .tag.soft { background: rgba(255,255,255,0.86); color: var(--muted); border-color: rgba(97, 63, 45, 0.1); }
+    .tag.red {
+      background: #8f2719;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .tag.green {
+      background: #1f6f43;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .tag.gold {
+      background: #b8860b;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .tag.ink {
+      background: #2c2018;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .tag.soft {
+      background: #4f3c31;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
 
     .control-strip {
       display: flex;
@@ -959,6 +981,64 @@
       overflow: hidden;
     }
 
+    .upi-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+      margin-top: 8px;
+    }
+
+    .upi-card {
+      border-radius: 18px;
+      border: 1px solid rgba(97, 63, 45, 0.14);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 12px;
+      box-shadow: 0 12px 26px rgba(57, 27, 15, 0.08);
+    }
+
+    .upi-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .upi-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 0.67rem;
+      letter-spacing: 0.02em;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .upi-logo.paytm { background: linear-gradient(135deg, #00a8f3, #0f4a8a); }
+    .upi-logo.phonepe { background: linear-gradient(135deg, #6f2dbd, #4b1e83); }
+    .upi-logo.gpay { background: linear-gradient(135deg, #1a73e8, #34a853); }
+
+    .qr-frame {
+      width: 100%;
+      max-width: 210px;
+      aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(97, 63, 45, 0.12);
+      background: #fff;
+      margin: 0 auto;
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .payment-qr::before {
       content: "";
       position: absolute;
@@ -1060,6 +1140,7 @@
       .hide-mobile { display: inline-flex; }
       .floating-cta { display: none; }
       .traverse-rail { grid-auto-columns: minmax(320px, 1fr); }
+      .upi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (min-width: 1100px) {
@@ -1500,16 +1581,32 @@
           <div class="section-head" style="margin-bottom: 12px;">
             <div>
               <h3>UPI Payment QR</h3>
-              <p>Use this as a placeholder card until you add the actual QR image.</p>
+              <p>Choose your preferred app and scan the matching QR code.</p>
             </div>
           </div>
-          <div class="payment-qr" aria-label="UPI QR code placeholder">
-            <div class="qr-core">
-              <!-- Dummy sample QR. Replace pa/pn/am values or this full URL with your real merchant UPI QR image. -->
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DSample%2520UPI%2520Payment" alt="Sample dummy UPI QR code" style="width: 100%; height: 100%; border-radius: 18px; object-fit: cover;" />
+          <div class="payment-qr" aria-label="UPI QR options">
+            <div class="upi-grid">
+              <article class="upi-card" aria-label="Paytm QR">
+                <div class="upi-head"><span class="upi-logo paytm">PTM</span>Paytm</div>
+                <div class="qr-frame">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DPaytm%2520Payment" alt="Paytm UPI QR code" />
+                </div>
+              </article>
+              <article class="upi-card" aria-label="PhonePe QR">
+                <div class="upi-head"><span class="upi-logo phonepe">PPE</span>PhonePe</div>
+                <div class="qr-frame">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DPhonePe%2520Payment" alt="PhonePe UPI QR code" />
+                </div>
+              </article>
+              <article class="upi-card" aria-label="Google Pay QR">
+                <div class="upi-head"><span class="upi-logo gpay">GPay</span>Google Pay</div>
+                <div class="qr-frame">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DGoogle%2520Pay%2520Payment" alt="Google Pay UPI QR code" />
+                </div>
+              </article>
             </div>
           </div>
-          <p style="margin:10px 0 0; color:var(--muted); font-size:0.82rem;">Sample QR only. Replace with your real UPI QR before accepting payments.</p>
+          <p style="margin:10px 0 0; color:var(--muted); font-size:0.82rem;">Sample QR codes with app labels. Replace UPI ID and amount with your real payment details before production use.</p>
           <div class="tag-row" style="margin-top:14px;">
             <span class="tag green">Paytm</span>
             <span class="tag soft">PhonePe</span>
