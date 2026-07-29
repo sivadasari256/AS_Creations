@@ -984,8 +984,31 @@
     .upi-grid {
       display: grid;
       gap: 12px;
-      grid-template-columns: 1fr;
       margin-top: 8px;
+    }
+
+    .upi-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .upi-tab-btn {
+      border: 1px solid rgba(97, 63, 45, 0.18);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: all 180ms ease;
+    }
+
+    .upi-tab-btn.active {
+      background: linear-gradient(135deg, #b33b24, #d16a3a);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 10px 20px rgba(177, 59, 36, 0.24);
     }
 
     .upi-card {
@@ -995,6 +1018,9 @@
       padding: 12px;
       box-shadow: 0 12px 26px rgba(57, 27, 15, 0.08);
     }
+
+    .upi-panel { display: none; }
+    .upi-panel.active { display: block; }
 
     .upi-head {
       display: flex;
@@ -1140,7 +1166,7 @@
       .hide-mobile { display: inline-flex; }
       .floating-cta { display: none; }
       .traverse-rail { grid-auto-columns: minmax(320px, 1fr); }
-      .upi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .upi-card { max-width: 280px; }
     }
 
     @media (min-width: 1100px) {
@@ -1586,19 +1612,24 @@
           </div>
           <div class="payment-qr" aria-label="UPI QR options">
             <div class="upi-grid">
-              <article class="upi-card" aria-label="Paytm QR">
+              <div class="upi-tabs" role="tablist" aria-label="Select UPI app">
+                <button type="button" class="upi-tab-btn active" data-upi-tab="paytm" role="tab" aria-selected="true">Paytm</button>
+                <button type="button" class="upi-tab-btn" data-upi-tab="phonepe" role="tab" aria-selected="false">PhonePe</button>
+                <button type="button" class="upi-tab-btn" data-upi-tab="gpay" role="tab" aria-selected="false">Google Pay</button>
+              </div>
+              <article class="upi-card upi-panel active" data-upi-panel="paytm" aria-label="Paytm QR">
                 <div class="upi-head"><span class="upi-logo paytm">PTM</span>Paytm</div>
                 <div class="qr-frame">
                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DPaytm%2520Payment" alt="Paytm UPI QR code" />
                 </div>
               </article>
-              <article class="upi-card" aria-label="PhonePe QR">
+              <article class="upi-card upi-panel" data-upi-panel="phonepe" aria-label="PhonePe QR">
                 <div class="upi-head"><span class="upi-logo phonepe">PPE</span>PhonePe</div>
                 <div class="qr-frame">
                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DPhonePe%2520Payment" alt="PhonePe UPI QR code" />
                 </div>
               </article>
-              <article class="upi-card" aria-label="Google Pay QR">
+              <article class="upi-card upi-panel" data-upi-panel="gpay" aria-label="Google Pay QR">
                 <div class="upi-head"><span class="upi-logo gpay">GPay</span>Google Pay</div>
                 <div class="qr-frame">
                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=upi%3A%2F%2Fpay%3Fpa%3Dannapoorna-demo%40upi%26pn%3DAnnapoorna%2520Homemade%2520Curry%2520Point%26am%3D149%26cu%3DINR%26tn%3DGoogle%2520Pay%2520Payment" alt="Google Pay UPI QR code" />
@@ -1759,6 +1790,27 @@
     document.querySelectorAll("[data-scroll-right]").forEach((button) => {
       button.addEventListener("click", () => storyRail.scrollBy({ left: 360, behavior: "smooth" }));
     });
+
+    const upiTabButtons = document.querySelectorAll("[data-upi-tab]");
+    const upiPanels = document.querySelectorAll("[data-upi-panel]");
+
+    function setUpiTab(tabName) {
+      upiTabButtons.forEach((button) => {
+        const isActive = button.getAttribute("data-upi-tab") === tabName;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+      });
+
+      upiPanels.forEach((panel) => {
+        panel.classList.toggle("active", panel.getAttribute("data-upi-panel") === tabName);
+      });
+    }
+
+    upiTabButtons.forEach((button) => {
+      button.addEventListener("click", () => setUpiTab(button.getAttribute("data-upi-tab")));
+    });
+
+    setUpiTab("paytm");
 
     year.textContent = new Date().getFullYear();
   </script>
