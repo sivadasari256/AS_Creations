@@ -172,6 +172,22 @@
 
     .nav-actions { display: flex; gap: 10px; align-items: center; }
 
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon.solid {
+      fill: currentColor;
+      stroke: none;
+    }
+
     .pill,
     .chip,
     .filter-btn,
@@ -348,7 +364,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 9px;
       padding: 14px 18px;
       border-radius: 16px;
       font-weight: 900;
@@ -1063,7 +1079,9 @@
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Annapoorna Homemade Curry Point home">
-        <div class="brand-mark">🍛</div>
+        <div class="brand-mark">
+          <svg class="icon solid" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5c0-2 1.6-3.5 3.6-3.5h8.8c2 0 3.6 1.5 3.6 3.5S18.4 15 16.4 15H7.6C5.6 15 4 13.5 4 11.5Zm2.8 5h10.4a2.8 2.8 0 0 1-2.8 2.5H9.6a2.8 2.8 0 0 1-2.8-2.5ZM8.5 6.5c.4-1.2 1.2-2.6 3.5-3.5-.2 1.1-.3 2.2-.3 3.5"/></svg>
+        </div>
         <div>
           <h1>Annapoorna Homemade Curry Point</h1>
           <p>Fresh daily Tamil Nadu curries</p>
@@ -1090,24 +1108,24 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <div class="eyebrow">Freshly Cooked Daily | Authentic Tamil Nadu Spices</div>
-            <h2>Traditional curry, cinematic enough to stop the scroll.</h2>
+            <h2>Traditional Tamil curry, fresh every day.</h2>
             <p class="lead">
-              Daily cooked Chettinad-style curries, rich kulambu, sides, and family meal packs prepared in small batches for aroma, freshness, and a clean homestyle finish.
+              தினமும் புது சமைப்பு. Chettinad-style curries, kulambu, sides, and family meal packs prepared in small batches for fresh taste and home-style quality.
               <!-- Edit this intro to match the exact brand story, local area, or special dishes. -->
             </p>
 
             <div class="badge-bar stagger">
-              <span class="chip">🟢 Hot batches now</span>
-              <span class="chip">🌿 Pure veg options</span>
-              <span class="chip">🌶️ Spicy classics</span>
-              <span class="chip">🚚 Local delivery</span>
+              <span class="chip">இப்போது சூடான பாச்சுகள்</span>
+              <span class="chip">Pure veg options</span>
+              <span class="chip">Spicy favorites</span>
+              <span class="chip">Local delivery</span>
             </div>
 
             <div class="hero-actions">
               <!-- Edit the phone number below. -->
-              <a class="btn btn-primary" href="tel:+919876543210">📞 Call to Order</a>
+              <a class="btn btn-primary" href="tel:+919876543210"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.8a16 16 0 0 0 4 4L14.3 12l5 2v4a2 2 0 0 1-2 2C10 20 4 14 4 6a2 2 0 0 1 1-2Z"/></svg>Call to Order</a>
               <!-- Edit WhatsApp number and message below. -->
-              <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20I%20would%20like%20today%27s%20specials%20and%20menu." target="_blank" rel="noopener">💬 WhatsApp Order</a>
+              <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20I%20would%20like%20today%27s%20specials%20and%20menu." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5A8.5 8.5 0 0 1 7.5 19L4 20l1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9.5 10.2c.2-.5.4-.5.8-.5h.6c.2 0 .4 0 .5.3l.6 1.4c.1.2 0 .3-.1.5l-.3.3c-.1.1-.2.2-.1.4.3.6 1 1.3 1.7 1.7.2.1.3 0 .4-.1l.4-.5c.1-.2.3-.2.4-.2l1.2.6c.2.1.3.2.3.4 0 .3-.2 1-.6 1.2-.3.2-.6.3-1 .2-1.8-.6-4.4-3.1-5-5-.2-.4 0-.8.2-1.1Z"/></svg>WhatsApp Order</a>
             </div>
 
             <div class="hero-metrics">
@@ -1132,7 +1150,7 @@
 
           <div class="hero-visual" id="heroVisual" aria-label="Fresh South Indian curry visual stage">
             <div class="mini-glow" aria-hidden="true"></div>
-            <div class="status-card" id="kitchenStatus">🟢 Cooking Fresh Batches Now</div>
+            <div class="status-card" id="kitchenStatus">Fresh batches cooking now</div>
             <div class="image-card" data-parallax="0.18">
               <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" alt="South Indian curry plate" />
             </div>
@@ -1140,7 +1158,7 @@
               <div class="control-strip">
                 <div>
                   <div class="tag-row" id="specialTags">
-                    <span class="tag green">⭐ Chef's Special</span>
+                    <span class="tag green">Chef's Special</span>
                     <span class="tag gold">Best Seller</span>
                   </div>
                 </div>
@@ -1160,8 +1178,8 @@
       <div class="wrap reveal">
         <div class="section-head">
           <div>
-            <h3>Today’s Specials</h3>
-            <p>High-motion feature area with a rotating special card, changing kitchen status, and strong visual hierarchy.</p>
+            <h3>Today’s Specials | இன்றைய சிறப்புகள்</h3>
+            <p>See today’s highlighted dishes and current kitchen status.</p>
           </div>
           <div class="arrows">
             <button class="ghost" type="button" id="specialNext" aria-label="Next special">›</button>
@@ -1172,7 +1190,7 @@
           <div class="special-stage">
             <img id="specialImage" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" alt="Today special dish" />
             <div class="special-overlay">
-              <div class="status-pill" id="specialStatus">🟠 Hot & Ready</div>
+              <div class="status-pill" id="specialStatus">Hot and ready</div>
               <h4 id="specialTitle" class="special-name">Meen Kulambu</h4>
               <p id="specialCopy" class="special-copy">Tangy tamarind fish curry with fresh spices and a clean, homely finish for rice meals.</p>
               <div class="tag-row" id="specialOverlayTags"></div>
@@ -1181,14 +1199,14 @@
 
           <div class="special-copy-stack">
             <div class="section-card">
-              <h4 style="margin:0 0 8px;">Visual Motion Direction</h4>
-              <p style="margin:0;color:var(--muted);line-height:1.65;">Images scale, cards rise in on scroll, the hero has layered glows, and the special panel cycles with a subtle cinematic feel. Everything remains lightweight and single-file.</p>
+              <h4 style="margin:0 0 8px;">Simple Ordering, Fresh Food</h4>
+              <p style="margin:0;color:var(--muted);line-height:1.65;">Call or WhatsApp to order. Fresh batches are prepared daily for lunch and dinner.</p>
             </div>
             <div class="section-card">
               <div class="tag-row">
-                <span class="tag red">🌶️ Spicy</span>
-                <span class="tag green">🌿 Pure Veg</span>
-                <span class="tag gold">⭐ Signature</span>
+                <span class="tag red">Spicy</span>
+                <span class="tag green">Pure Veg</span>
+                <span class="tag gold">Signature</span>
                 <span class="tag soft">Updated daily</span>
               </div>
             </div>
@@ -1201,8 +1219,8 @@
       <div class="wrap reveal">
         <div class="section-head">
           <div>
-            <h3>Traverse the Kitchen Story</h3>
-            <p>A horizontal scroll rail creates a deliberate traverse effect that feels more premium than a simple grid.</p>
+            <h3>Popular Choices | மக்கள் விருப்பம்</h3>
+            <p>Browse customer favorites for family meals and daily orders.</p>
           </div>
           <div class="arrows">
             <button class="ghost" type="button" data-scroll-left aria-label="Scroll left">‹</button>
@@ -1249,7 +1267,7 @@
               <div>
                 <strong>Chettinad Chicken Curry</strong>
                 <p>Roasted pepper masala, curry leaves, and rich traditional gravy.</p>
-                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag gold">⭐ Chef's Special</span></div>
+                <div class="tag-row"><span class="tag red">Spicy</span><span class="tag gold">Chef's Special</span></div>
               </div>
               <div class="price">₹180</div>
             </div>
@@ -1257,7 +1275,7 @@
               <div>
                 <strong>Meen Kulambu</strong>
                 <p>Tangy tamarind fish curry with fresh spices and a homely finish.</p>
-                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag soft">Fresh Catch</span></div>
+                <div class="tag-row"><span class="tag red">Spicy</span><span class="tag soft">Fresh Catch</span></div>
               </div>
               <div class="price">₹220</div>
             </div>
@@ -1265,7 +1283,7 @@
               <div>
                 <strong>Mutton Gravy</strong>
                 <p>Slow-cooked gravy with tender mutton pieces and bold masala depth.</p>
-                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag soft">Premium</span></div>
+                <div class="tag-row"><span class="tag red">Spicy</span><span class="tag soft">Premium</span></div>
               </div>
               <div class="price">₹260</div>
             </div>
@@ -1273,7 +1291,7 @@
               <div>
                 <strong>Mutton Chukka</strong>
                 <p>Dry-style pepper roast with high aroma and street-style appeal.</p>
-                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag gold">⭐ Chef's Special</span></div>
+                <div class="tag-row"><span class="tag red">Spicy</span><span class="tag gold">Chef's Special</span></div>
               </div>
               <div class="price">₹280</div>
             </div>
@@ -1285,7 +1303,7 @@
               <div>
                 <strong>Vatha Kulambu</strong>
                 <p>Deep tamarind kulambu made the traditional Tamil way.</p>
-                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Tangy</span></div>
+                <div class="tag-row"><span class="tag green">Pure Veg</span><span class="tag soft">Tangy</span></div>
               </div>
               <div class="price">₹90</div>
             </div>
@@ -1293,7 +1311,7 @@
               <div>
                 <strong>Ennai Kathirikai Kulambu</strong>
                 <p>Stuffed brinjal curry with sesame notes and robust masala.</p>
-                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag gold">⭐ Signature</span></div>
+                <div class="tag-row"><span class="tag green">Pure Veg</span><span class="tag gold">Signature</span></div>
               </div>
               <div class="price">₹120</div>
             </div>
@@ -1301,7 +1319,7 @@
               <div>
                 <strong>Sambar</strong>
                 <p>Balanced lentil-and-vegetable sambar for rice, idli, and dosa.</p>
-                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Daily Staple</span></div>
+                <div class="tag-row"><span class="tag green">Pure Veg</span><span class="tag soft">Daily Staple</span></div>
               </div>
               <div class="price">₹70</div>
             </div>
@@ -1309,7 +1327,7 @@
               <div>
                 <strong>Rasam</strong>
                 <p>Light peppery rasam for comfort meals and quick lunch packs.</p>
-                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Comfort</span></div>
+                <div class="tag-row"><span class="tag green">Pure Veg</span><span class="tag soft">Comfort</span></div>
               </div>
               <div class="price">₹55</div>
             </div>
@@ -1317,7 +1335,7 @@
               <div>
                 <strong>Poriyal</strong>
                 <p>Seasonal vegetable stir-fry with coconut tempering.</p>
-                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Side Dish</span></div>
+                <div class="tag-row"><span class="tag green">Pure Veg</span><span class="tag soft">Side Dish</span></div>
               </div>
               <div class="price">₹60</div>
             </div>
@@ -1329,7 +1347,7 @@
               <div>
                 <strong>Mini Meal Box</strong>
                 <p>Rice, sambar, rasam, poriyal, pickle, and one curry choice.</p>
-                <div class="tag-row"><span class="tag soft">Best Value</span><span class="tag green">🌿/🌶️ Choice</span></div>
+                <div class="tag-row"><span class="tag soft">Best Value</span><span class="tag green">Veg/Spicy Choice</span></div>
               </div>
               <div class="price">₹149</div>
             </div>
@@ -1448,10 +1466,10 @@
           </div>
           <div class="cta-stack">
             <!-- Edit phone number below. -->
-            <a class="btn btn-primary" href="tel:+919876543210">📞 Call Now</a>
+            <a class="btn btn-primary" href="tel:+919876543210"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.8a16 16 0 0 0 4 4L14.3 12l5 2v4a2 2 0 0 1-2 2C10 20 4 14 4 6a2 2 0 0 1 1-2Z"/></svg>Call Now</a>
             <!-- Edit WhatsApp number and message below. -->
-            <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20please%20share%20today%27s%20menu%20and%20prices." target="_blank" rel="noopener">💬 Order on WhatsApp</a>
-            <a class="btn btn-secondary" href="https://maps.google.com/?q=Annapoorna%20Homemade%20Curry%20Point%20Tamil%20Nadu" target="_blank" rel="noopener">📍 Open Maps</a>
+            <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20please%20share%20today%27s%20menu%20and%20prices." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5A8.5 8.5 0 0 1 7.5 19L4 20l1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9.5 10.2c.2-.5.4-.5.8-.5h.6c.2 0 .4 0 .5.3l.6 1.4c.1.2 0 .3-.1.5l-.3.3c-.1.1-.2.2-.1.4.3.6 1 1.3 1.7 1.7.2.1.3 0 .4-.1l.4-.5c.1-.2.3-.2.4-.2l1.2.6c.2.1.3.2.3.4 0 .3-.2 1-.6 1.2-.3.2-.6.3-1 .2-1.8-.6-4.4-3.1-5-5-.2-.4 0-.8.2-1.1Z"/></svg>Order on WhatsApp</a>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=Annapoorna%20Homemade%20Curry%20Point%20Tamil%20Nadu" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>Open Maps</a>
           </div>
           <div class="hours-list">
             <div class="hours-row"><div><strong>Lunch</strong><span>11:00 AM - 2:30 PM</span></div><div class="tag green">Hot & Ready</div></div>
@@ -1497,13 +1515,13 @@
   </main>
 
   <div class="floating-cta" aria-label="Quick order actions">
-    <a class="btn btn-primary" href="tel:+919876543210">📞 Call</a>
-    <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20I%27d%20like%20to%20order%20today." target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="btn btn-primary" href="tel:+919876543210"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.8a16 16 0 0 0 4 4L14.3 12l5 2v4a2 2 0 0 1-2 2C10 20 4 14 4 6a2 2 0 0 1 1-2Z"/></svg>Call</a>
+    <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20I%27d%20like%20to%20order%20today." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5A8.5 8.5 0 0 1 7.5 19L4 20l1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9.5 10.2c.2-.5.4-.5.8-.5h.6c.2 0 .4 0 .5.3l.6 1.4c.1.2 0 .3-.1.5l-.3.3c-.1.1-.2.2-.1.4.3.6 1 1.3 1.7 1.7.2.1.3 0 .4-.1l.4-.5c.1-.2.3-.2.4-.2l1.2.6c.2.1.3.2.3.4 0 .3-.2 1-.6 1.2-.3.2-.6.3-1 .2-1.8-.6-4.4-3.1-5-5-.2-.4 0-.8.2-1.1Z"/></svg>WhatsApp</a>
   </div>
 
   <footer class="footer">
     <div class="wrap">
-      <p>© <span id="year"></span> Annapoorna Homemade Curry Point. A motion-led, mobile-first Tamil Nadu curry point website.</p>
+      <p>© <span id="year"></span> Annapoorna Homemade Curry Point. சுவைமிகு தமிழ் வீட்டுச் சமையல்.</p>
     </div>
   </footer>
 
@@ -1514,32 +1532,32 @@
         title: "Chettinad Chicken Curry",
         desc: "Deep-roasted spice blend, curry leaves, and a slow-cooked gravy that pairs beautifully with parotta, rice, or idiyappam.",
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
-        status: "🟢 Cooking Fresh Batches Now",
-        tags: ["⭐ Chef's Special", "🌶️ Spicy", "Best Seller"]
+        status: "Fresh batches cooking now",
+        tags: ["Chef's Special", "Spicy", "Best Seller"]
       },
       {
         name: "Meen Kulambu",
         title: "Meen Kulambu",
         desc: "Tangy tamarind fish curry with fresh spices and a clean, homely finish for rice meals.",
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
-        status: "🟠 Hot & Ready",
-        tags: ["🌶️ Spicy", "Fresh Catch", "Today’s Special"]
+        status: "Hot and ready",
+        tags: ["Spicy", "Fresh Catch", "Today's Special"]
       },
       {
         name: "Ennai Kathirikai Kulambu",
         title: "Ennai Kathirikai Kulambu",
         desc: "Stuffed brinjal curry with sesame notes, bold masala, and a rich, comforting finish.",
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
-        status: "🟢 Fresh Batch Available",
-        tags: ["🌿 Pure Veg", "⭐ Signature", "Tangy"]
+        status: "Fresh batch available",
+        tags: ["Pure Veg", "Signature", "Tangy"]
       },
       {
         name: "Mutton Chukka",
         title: "Mutton Chukka",
         desc: "Dry-style pepper roast with high aroma and a bold finishing masala that customers remember.",
         image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
-        status: "🟡 Limited Quantity",
-        tags: ["🌶️ Spicy", "⭐ Chef's Special", "Premium"]
+        status: "Limited quantity",
+        tags: ["Spicy", "Chef's Special", "Premium"]
       }
     ];
 
@@ -1561,9 +1579,9 @@
     let currentIndex = 0;
 
     function tagClass(tag) {
-      if (tag.includes("🌿")) return "green";
-      if (tag.includes("⭐") || tag.includes("Best") || tag.includes("Signature")) return "gold";
-      if (tag.includes("🌶️")) return "red";
+      if (tag.includes("Veg")) return "green";
+      if (tag.includes("Special") || tag.includes("Best") || tag.includes("Signature")) return "gold";
+      if (tag.includes("Spicy")) return "red";
       return "soft";
     }
 
