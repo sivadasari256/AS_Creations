@@ -410,7 +410,7 @@
       overflow: hidden;
       background:
         linear-gradient(180deg, rgba(16,16,16,0.14), rgba(16,16,16,0.34)),
-        url("https://placehold.co/1600x1000/9d3d25/fff8ee.png?text=South+Indian+Meals") center/cover;
+        var(--hero-image, url("assets/images/mutton-chukka.webp")) center/cover;
       border: 1px solid rgba(255,255,255,0.18);
       min-height: 420px;
       transform-style: preserve-3d;
@@ -1152,7 +1152,7 @@
             <div class="mini-glow" aria-hidden="true"></div>
             <div class="status-card" id="kitchenStatus">Fresh batches cooking now</div>
             <div class="image-card" data-parallax="0.18">
-              <img src="assets/images/mini-lunch-box.jpg" alt="South Indian curry plate" />
+              <img id="heroRecipeImage" src="assets/images/mutton-chukka.webp" alt="South Indian curry plate" />
             </div>
             <div class="float-card">
               <div class="control-strip">
@@ -1565,6 +1565,7 @@
     const specialTitle = document.getElementById("specialTitle");
     const specialCopy = document.getElementById("specialCopy");
     const specialImage = document.getElementById("specialImage");
+    const heroRecipeImage = document.getElementById("heroRecipeImage");
     const specialTags = document.getElementById("specialOverlayTags");
     const specialStatus = document.getElementById("specialStatus");
     const kitchenStatus = document.getElementById("kitchenStatus");
@@ -1591,6 +1592,8 @@
       specialTitle.textContent = item.title;
       specialCopy.textContent = item.desc;
       specialImage.src = item.image;
+      heroRecipeImage.src = item.image;
+      heroVisual.style.setProperty("--hero-image", `url('${item.image}')`);
       specialStatus.textContent = item.status;
       kitchenStatus.textContent = item.status;
       specialTags.innerHTML = item.tags.map(tag => `<span class="tag ${tagClass(tag)}">${tag}</span>`).join("");
