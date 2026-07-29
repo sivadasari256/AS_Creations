@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Annapoorna Homemade Curry Point - cinematic single-page website for fresh Tamil Nadu curries, kulambu, meal packs, and local orders." />
+  <meta name="theme-color" content="#b33b24" />
+  <title>Annapoorna Homemade Curry Point</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800;900&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fff7eb;
+      --panel: rgba(255, 255, 255, 0.8);
+      --panel-strong: rgba(255, 255, 255, 0.94);
+      --text: #251810;
+      --muted: #6d5a4f;
+      --line: rgba(97, 63, 45, 0.12);
+      --turmeric: #f2b705;
+      --leaf: #1f6f43;
+      --spice: #b33b24;
+      --terracotta: #d16a3a;
+      --shadow: 0 24px 70px rgba(57, 27, 15, 0.14);
+      --shadow-strong: 0 30px 90px rgba(57, 27, 15, 0.22);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242, 183, 5, 0.18), transparent 24%),
+        radial-gradient(circle at 85% 12%, rgba(31, 111, 67, 0.18), transparent 22%),
+        radial-gradient(circle at 50% 115%, rgba(177, 59, 36, 0.16), transparent 26%),
+        linear-gradient(180deg, #fffaf2 0%, #fff4e6 46%, #fffaf7 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 42vw;
+      height: 42vw;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.42;
+      pointer-events: none;
+      z-index: -1;
+      animation: floatGlow 14s ease-in-out infinite;
+    }
+
+    body::before {
+      top: -12vw;
+      right: -12vw;
+      background: rgba(242, 183, 5, 0.34);
+    }
+
+    body::after {
+      bottom: -12vw;
+      left: -12vw;
+      background: rgba(31, 111, 67, 0.26);
+      animation-delay: -7s;
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(2vw, -1.5vw, 0) scale(1.08); }
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    ::selection { background: rgba(177, 59, 36, 0.22); }
+
+    .wrap {
+      width: min(calc(100% - 24px), var(--max));
+      margin: 0 auto;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.5);
+      z-index: 120;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--turmeric), var(--spice), #ff8c4f);
+      box-shadow: 0 0 18px rgba(177, 59, 36, 0.35);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 4px;
+      z-index: 110;
+      backdrop-filter: blur(22px);
+      background: rgba(255, 250, 244, 0.72);
+      border-bottom: 1px solid rgba(97, 63, 45, 0.08);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, #8f2719 0%, #c54b29 45%, #f2b705 120%);
+      box-shadow: 0 14px 26px rgba(177, 59, 36, 0.32);
+      flex: 0 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto auto;
+      width: 70%;
+      height: 70%;
+      background: rgba(255,255,255,0.22);
+      filter: blur(10px);
+      transform: rotate(15deg);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: -0.03em;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+    .pill,
+    .chip,
+    .filter-btn,
+    .ghost {
+      border: 1px solid rgba(97, 63, 45, 0.12);
+      background: rgba(255,255,255,0.78);
+      box-shadow: 0 12px 28px rgba(57, 27, 15, 0.06);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .pill:hover,
+    .chip:hover,
+    .filter-btn:hover,
+    .ghost:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(57, 27, 15, 0.1); }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 999px;
+    }
+
+    .section { padding: 18px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(31, 111, 67, 0.1);
+      color: var(--leaf);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .hero {
+      position: relative;
+      padding: 18px 0 8px;
+      isolation: isolate;
+    }
+
+    .hero-shell {
+      position: relative;
+      border-radius: calc(var(--radius-xl) + 8px);
+      overflow: hidden;
+      box-shadow: var(--shadow-strong);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.34), transparent 28%),
+        linear-gradient(135deg, rgba(28, 14, 11, 0.2), rgba(28, 14, 11, 0.05)),
+        linear-gradient(145deg, #2a120e 0%, #561d14 32%, #b84c2b 72%, #f2b705 136%);
+    }
+
+    .hero-shell::before,
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(14px);
+      opacity: 0.7;
+      animation: orbit 11s linear infinite;
+    }
+
+    .hero-shell::before {
+      width: 260px;
+      height: 260px;
+      top: -90px;
+      left: -70px;
+      background: rgba(255, 206, 74, 0.34);
+    }
+
+    .hero-shell::after {
+      width: 320px;
+      height: 320px;
+      right: -110px;
+      bottom: -120px;
+      background: rgba(83, 186, 107, 0.18);
+      animation-direction: reverse;
+      animation-duration: 16s;
+    }
+
+    @keyframes orbit {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(18px, -22px, 0) scale(1.12); }
+      100% { transform: translate3d(0, 0, 0) scale(1); }
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .hero-copy,
+    .hero-visual {
+      min-height: 100%;
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-copy {
+      padding: 24px 16px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -6% -12% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 66%);
+      filter: blur(8px);
+      animation: drift 9s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-14px, -16px, 0) scale(1.08); }
+    }
+
+    .hero-copy h2 {
+      margin: 14px 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 10vw, 6.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      text-wrap: balance;
+    }
+
+    .hero-copy .lead {
+      margin: 0;
+      max-width: 64ch;
+      color: rgba(255,255,255,0.86);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255,255,255,0.88);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      border: 0;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); filter: saturate(1.05); }
+    .btn-primary {
+      background: linear-gradient(135deg, #ff8a4c, #b33b24 55%, #8f2719);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(177, 59, 36, 0.28);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.88);
+      color: var(--text);
+      border: 1px solid rgba(97, 63, 45, 0.12);
+      box-shadow: 0 14px 28px rgba(57, 27, 15, 0.08);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .metric strong { display: block; font-size: 0.96rem; }
+    .metric span { color: rgba(255,255,255,0.75); font-size: 0.88rem; }
+
+    .hero-visual {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(16,16,16,0.14), rgba(16,16,16,0.34)),
+        url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80") center/cover;
+      border: 1px solid rgba(255,255,255,0.18);
+      min-height: 420px;
+      transform-style: preserve-3d;
+    }
+
+    .hero-visual .float-card,
+    .hero-visual .status-card,
+    .hero-visual .image-card {
+      position: absolute;
+      backdrop-filter: blur(18px);
+      background: rgba(255,250,244,0.84);
+      border: 1px solid rgba(255,255,255,0.28);
+      box-shadow: 0 18px 42px rgba(30, 14, 8, 0.2);
+    }
+
+    .hero-visual .float-card {
+      inset: auto 16px 16px 16px;
+      padding: 16px;
+      border-radius: 22px;
+      z-index: 2;
+    }
+
+    .hero-visual .status-card {
+      top: 16px;
+      left: 16px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(17, 83, 45, 0.76);
+    }
+
+    .hero-visual .image-card {
+      width: 42%;
+      min-width: 170px;
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      overflow: hidden;
+      right: 22px;
+      top: 82px;
+      transform: rotate(7deg) translateZ(0);
+      animation: hoverUp 6s ease-in-out infinite;
+    }
+
+    @keyframes hoverUp {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(7deg); }
+      50% { transform: translate3d(0, -10px, 0) rotate(6deg); }
+    }
+
+    .hero-visual .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mini-glow {
+      position: absolute;
+      inset: auto auto 45% 9%;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,183,5,0.5), transparent 68%);
+      filter: blur(4px);
+      animation: pulseGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.62; }
+      50% { transform: scale(1.22); opacity: 0.92; }
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 14px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 65ch;
+      line-height: 1.6;
+    }
+
+    .surface {
+      background: var(--panel);
+      border: 1px solid rgba(97, 63, 45, 0.1);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
+
+    .marquee {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(90deg, rgba(16,10,8,0.84), rgba(94,31,20,0.92), rgba(16,10,8,0.84));
+      color: #fff;
+      margin-top: 12px;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 22px;
+      padding: 12px 0;
+      width: max-content;
+      animation: marquee 24s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section-card,
+    .specials,
+    .menu-card,
+    .promo,
+    .trust-card,
+    .review-card,
+    .contact-card,
+    .map-card,
+    .payment-card,
+    .hours-card,
+    .story-card {
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: var(--panel-strong);
+      border: 1px solid rgba(97, 63, 45, 0.1);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .specials-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .specials-head h4,
+    .menu-card h4,
+    .promo h4,
+    .contact-card h4,
+    .payment-card h4,
+    .hours-card h4,
+    .story-card h4 {
+      margin: 0;
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .special-carousel {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .special-stage {
+      position: relative;
+      min-height: 320px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #1c100b;
+      isolation: isolate;
+    }
+
+    .special-stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      filter: contrast(1.04) saturate(1.1);
+    }
+
+    .special-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(16,10,8,0.02), rgba(16,10,8,0.62) 90%),
+        radial-gradient(circle at 20% 20%, rgba(242,183,5,0.24), transparent 25%);
+    }
+
+    .special-overlay {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      z-index: 1;
+      color: #fff;
+      display: grid;
+      gap: 12px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(12px);
+    }
+
+    .special-name {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+    }
+
+    .special-copy {
+      margin: 0;
+      max-width: 54ch;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+
+    .tag-row,
+    .action-row,
+    .filters,
+    .chips,
+    .cta-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .tag.red { background: rgba(177, 59, 36, 0.12); color: var(--spice); }
+    .tag.green { background: rgba(31, 111, 67, 0.12); color: var(--leaf); }
+    .tag.gold { background: rgba(242, 183, 5, 0.16); color: #8d6405; }
+    .tag.ink { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.15); }
+    .tag.soft { background: rgba(255,255,255,0.86); color: var(--muted); border-color: rgba(97, 63, 45, 0.1); }
+
+    .control-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, rgba(177,59,36,0.12), rgba(242,183,5,0.2));
+      border-color: rgba(177,59,36,0.2);
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .menu-card h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px dashed rgba(97, 63, 45, 0.14);
+    }
+
+    .menu-item:first-of-type { border-top: 0; padding-top: 0; }
+
+    .menu-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1.02rem;
+    }
+
+    .menu-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.93rem;
+    }
+
+    .price {
+      white-space: nowrap;
+      font-weight: 900;
+      color: var(--spice);
+      padding: 9px 13px;
+      background: rgba(177, 59, 36, 0.08);
+      border-radius: 999px;
+      box-shadow: inset 0 0 0 1px rgba(177, 59, 36, 0.08);
+    }
+
+    .traverse {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .traverse-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(250px, 1fr);
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+
+    .traverse-rail::-webkit-scrollbar { display: none; }
+
+    .story-card {
+      min-height: 270px;
+      scroll-snap-align: start;
+      position: relative;
+      color: #fff;
+      overflow: hidden;
+      padding: 0;
+      isolation: isolate;
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 270px;
+      filter: contrast(1.02) saturate(1.08);
+      transform: scale(1.08);
+      transition: transform 500ms ease;
+    }
+
+    .story-card:hover img { transform: scale(1.14); }
+
+    .story-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16,10,8,0.04), rgba(16,10,8,0.78));
+    }
+
+    .story-copy {
+      position: absolute;
+      inset: auto 16px 16px 16px;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+    }
+
+    .story-copy strong {
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .story-copy span {
+      color: rgba(255,255,255,0.8);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ghost {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .promo {
+      position: relative;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(255,255,255,0.5), transparent 22%),
+        linear-gradient(135deg, rgba(177,59,36,0.16), rgba(242,183,5,0.14)),
+        rgba(255,255,255,0.92);
+      border-left: 8px solid var(--turmeric);
+    }
+
+    .promo h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .promo p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .trust-grid,
+    .review-grid,
+    .contact-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .trust-card {
+      position: relative;
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.78)),
+        radial-gradient(circle at top right, rgba(242,183,5,0.08), transparent 22%);
+    }
+
+    .trust-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+
+    .trust-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .review-card blockquote {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .review-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      background: linear-gradient(135deg, #8f2719, #b33b24 45%, #f2b705);
+      box-shadow: 0 14px 24px rgba(177, 59, 36, 0.24);
+    }
+
+    .review-meta strong { display: block; }
+    .review-meta span { color: var(--muted); font-size: 0.88rem; }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hours-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .hours-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px dashed rgba(97, 63, 45, 0.14);
+    }
+
+    .hours-row:first-child { padding-top: 0; border-top: 0; }
+    .hours-row strong { display: block; }
+    .hours-row span { color: var(--muted); }
+
+    .map-frame {
+      width: 100%;
+      min-height: 320px;
+      border: 0;
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .payment-qr {
+      min-height: 260px;
+      position: relative;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(242,183,5,0.18), transparent 24%),
+        radial-gradient(circle at 80% 80%, rgba(31,111,67,0.16), transparent 22%),
+        linear-gradient(135deg, rgba(255,255,255,0.94), rgba(248,240,230,0.92));
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(97, 63, 45, 0.1);
+      overflow: hidden;
+    }
+
+    .payment-qr::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 18px;
+      border: 14px solid rgba(97, 63, 45, 0.11);
+      background:
+        linear-gradient(90deg, rgba(177,59,36,0.1) 0 13px, transparent 13px 27px),
+        linear-gradient(rgba(177,59,36,0.1) 0 13px, transparent 13px 27px);
+      background-size: 26px 26px;
+      opacity: 0.7;
+      transform: rotate(-1deg);
+    }
+
+    .qr-core {
+      position: relative;
+      z-index: 1;
+      width: min(180px, 58vw);
+      aspect-ratio: 1;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(97, 63, 45, 0.1);
+      box-shadow: 0 18px 36px rgba(57, 27, 15, 0.12);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+    }
+
+    .qr-core strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .qr-core span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px) scale(0.98);
+      transition: opacity 720ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 700ms ease forwards;
+    }
+
+    .stagger > *:nth-child(2) { animation-delay: 90ms; }
+    .stagger > *:nth-child(3) { animation-delay: 150ms; }
+    .stagger > *:nth-child(4) { animation-delay: 210ms; }
+    .stagger > *:nth-child(5) { animation-delay: 270ms; }
+    .stagger > *:nth-child(6) { animation-delay: 330ms; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      padding: 22px 0 96px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    .floating-cta {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 100;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .floating-cta .btn { padding: 14px 12px; box-shadow: 0 16px 36px rgba(57, 27, 15, 0.18); }
+
+    .hide-mobile { display: none; }
+
+    @media (min-width: 760px) {
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; align-items: stretch; padding: 22px; }
+      .hero-copy { padding: 28px 22px 22px; }
+      .menu-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .trust-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contact-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .hide-mobile { display: inline-flex; }
+      .floating-cta { display: none; }
+      .traverse-rail { grid-auto-columns: minmax(320px, 1fr); }
+    }
+
+    @media (min-width: 1100px) {
+      .hero { padding-top: 24px; }
+      .special-carousel { grid-template-columns: 1.08fr 0.92fr; align-items: stretch; }
+      .special-stage { min-height: 460px; }
+      .special-copy-stack { display: grid; gap: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Annapoorna Homemade Curry Point home">
+        <div class="brand-mark">🍛</div>
+        <div>
+          <h1>Annapoorna Homemade Curry Point</h1>
+          <p>Fresh daily Tamil Nadu curries</p>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a class="pill hide-mobile" href="#specials">Specials</a>
+        <a class="pill hide-mobile" href="#menu">Menu</a>
+        <a class="pill hide-mobile" href="#contact">Order</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-shell reveal">
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track" id="marqueeTrack">
+            <span>Freshly Cooked Daily</span><span>Authentic Tamil Nadu Spices</span><span>Lunch & Dinner</span><span>Homemade Taste</span><span>Small-Batch Cooking</span>
+            <span>Freshly Cooked Daily</span><span>Authentic Tamil Nadu Spices</span><span>Lunch & Dinner</span><span>Homemade Taste</span><span>Small-Batch Cooking</span>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">Freshly Cooked Daily | Authentic Tamil Nadu Spices</div>
+            <h2>Traditional curry, cinematic enough to stop the scroll.</h2>
+            <p class="lead">
+              Daily cooked Chettinad-style curries, rich kulambu, sides, and family meal packs prepared in small batches for aroma, freshness, and a clean homestyle finish.
+              <!-- Edit this intro to match the exact brand story, local area, or special dishes. -->
+            </p>
+
+            <div class="badge-bar stagger">
+              <span class="chip">🟢 Hot batches now</span>
+              <span class="chip">🌿 Pure veg options</span>
+              <span class="chip">🌶️ Spicy classics</span>
+              <span class="chip">🚚 Local delivery</span>
+            </div>
+
+            <div class="hero-actions">
+              <!-- Edit the phone number below. -->
+              <a class="btn btn-primary" href="tel:+919876543210">📞 Call to Order</a>
+              <!-- Edit WhatsApp number and message below. -->
+              <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20I%20would%20like%20today%27s%20specials%20and%20menu." target="_blank" rel="noopener">💬 WhatsApp Order</a>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric">
+                <strong>Lunch</strong>
+                <span>11:00 AM - 2:30 PM</span>
+              </div>
+              <div class="metric">
+                <strong>Dinner</strong>
+                <span>6:30 PM - 9:30 PM</span>
+              </div>
+              <div class="metric">
+                <strong>Daily Cooking</strong>
+                <span>Small batches only</span>
+              </div>
+              <div class="metric">
+                <strong>Bulk Orders</strong>
+                <span>Accepted on WhatsApp</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" id="heroVisual" aria-label="Fresh South Indian curry visual stage">
+            <div class="mini-glow" aria-hidden="true"></div>
+            <div class="status-card" id="kitchenStatus">🟢 Cooking Fresh Batches Now</div>
+            <div class="image-card" data-parallax="0.18">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" alt="South Indian curry plate" />
+            </div>
+            <div class="float-card">
+              <div class="control-strip">
+                <div>
+                  <div class="tag-row" id="specialTags">
+                    <span class="tag green">⭐ Chef's Special</span>
+                    <span class="tag gold">Best Seller</span>
+                  </div>
+                </div>
+                <button class="ghost" type="button" id="specialPrev" aria-label="Previous special">‹</button>
+              </div>
+              <p id="specialName" class="special-name" style="margin-top: 12px;">Chettinad Chicken Curry</p>
+              <p id="specialDesc" class="special-copy">
+                Deep-roasted spice blend, curry leaves, and a slow-cooked gravy that pairs beautifully with parotta, rice, or idiyappam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="specials">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div>
+            <h3>Today’s Specials</h3>
+            <p>High-motion feature area with a rotating special card, changing kitchen status, and strong visual hierarchy.</p>
+          </div>
+          <div class="arrows">
+            <button class="ghost" type="button" id="specialNext" aria-label="Next special">›</button>
+          </div>
+        </div>
+
+        <div class="special-carousel surface">
+          <div class="special-stage">
+            <img id="specialImage" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80" alt="Today special dish" />
+            <div class="special-overlay">
+              <div class="status-pill" id="specialStatus">🟠 Hot & Ready</div>
+              <h4 id="specialTitle" class="special-name">Meen Kulambu</h4>
+              <p id="specialCopy" class="special-copy">Tangy tamarind fish curry with fresh spices and a clean, homely finish for rice meals.</p>
+              <div class="tag-row" id="specialOverlayTags"></div>
+            </div>
+          </div>
+
+          <div class="special-copy-stack">
+            <div class="section-card">
+              <h4 style="margin:0 0 8px;">Visual Motion Direction</h4>
+              <p style="margin:0;color:var(--muted);line-height:1.65;">Images scale, cards rise in on scroll, the hero has layered glows, and the special panel cycles with a subtle cinematic feel. Everything remains lightweight and single-file.</p>
+            </div>
+            <div class="section-card">
+              <div class="tag-row">
+                <span class="tag red">🌶️ Spicy</span>
+                <span class="tag green">🌿 Pure Veg</span>
+                <span class="tag gold">⭐ Signature</span>
+                <span class="tag soft">Updated daily</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div>
+            <h3>Traverse the Kitchen Story</h3>
+            <p>A horizontal scroll rail creates a deliberate traverse effect that feels more premium than a simple grid.</p>
+          </div>
+          <div class="arrows">
+            <button class="ghost" type="button" data-scroll-left aria-label="Scroll left">‹</button>
+            <button class="ghost" type="button" data-scroll-right aria-label="Scroll right">›</button>
+          </div>
+        </div>
+
+        <div class="traverse surface" id="storyRailWrap">
+          <div class="traverse-rail" id="storyRail">
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Brinjal curry" />
+              <div class="story-copy"><strong>Ennai Kathirikai Kulambu</strong><span>Rich sesame notes, stuffed brinjal, and deep Tamil home cooking character.</span></div>
+            </article>
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Mutton roast" />
+              <div class="story-copy"><strong>Mutton Chukka</strong><span>Dry-roasted pepper masala with a bold aroma and a premium weekend feel.</span></div>
+            </article>
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="South Indian meal" />
+              <div class="story-copy"><strong>Mini Meal Box</strong><span>Rice, sambar, rasam, poriyal, and a curry choice in one compact lunch pack.</span></div>
+            </article>
+            <article class="story-card">
+              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="South Indian curry bowls" />
+              <div class="story-copy"><strong>Family Curry Pack</strong><span>Perfect for Sunday orders, gatherings, and bulk local delivery.</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div>
+            <h3>Digital Menu</h3>
+            <p>Replace placeholder prices with your actual rate card. The typography and spacing are tuned to read well on mobile first.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-card stagger">
+            <h4>Non-Vegetarian Curries</h4>
+            <div class="menu-item">
+              <div>
+                <strong>Chettinad Chicken Curry</strong>
+                <p>Roasted pepper masala, curry leaves, and rich traditional gravy.</p>
+                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag gold">⭐ Chef's Special</span></div>
+              </div>
+              <div class="price">₹180</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Meen Kulambu</strong>
+                <p>Tangy tamarind fish curry with fresh spices and a homely finish.</p>
+                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag soft">Fresh Catch</span></div>
+              </div>
+              <div class="price">₹220</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Mutton Gravy</strong>
+                <p>Slow-cooked gravy with tender mutton pieces and bold masala depth.</p>
+                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag soft">Premium</span></div>
+              </div>
+              <div class="price">₹260</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Mutton Chukka</strong>
+                <p>Dry-style pepper roast with high aroma and street-style appeal.</p>
+                <div class="tag-row"><span class="tag red">🌶️ Spicy</span><span class="tag gold">⭐ Chef's Special</span></div>
+              </div>
+              <div class="price">₹280</div>
+            </div>
+          </article>
+
+          <article class="menu-card stagger">
+            <h4>Vegetarian Curries & Kulambu</h4>
+            <div class="menu-item">
+              <div>
+                <strong>Vatha Kulambu</strong>
+                <p>Deep tamarind kulambu made the traditional Tamil way.</p>
+                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Tangy</span></div>
+              </div>
+              <div class="price">₹90</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Ennai Kathirikai Kulambu</strong>
+                <p>Stuffed brinjal curry with sesame notes and robust masala.</p>
+                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag gold">⭐ Signature</span></div>
+              </div>
+              <div class="price">₹120</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Sambar</strong>
+                <p>Balanced lentil-and-vegetable sambar for rice, idli, and dosa.</p>
+                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Daily Staple</span></div>
+              </div>
+              <div class="price">₹70</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Rasam</strong>
+                <p>Light peppery rasam for comfort meals and quick lunch packs.</p>
+                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Comfort</span></div>
+              </div>
+              <div class="price">₹55</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Poriyal</strong>
+                <p>Seasonal vegetable stir-fry with coconut tempering.</p>
+                <div class="tag-row"><span class="tag green">🌿 Pure Veg</span><span class="tag soft">Side Dish</span></div>
+              </div>
+              <div class="price">₹60</div>
+            </div>
+          </article>
+
+          <article class="menu-card stagger">
+            <h4>Daily Combos / Meal Packs</h4>
+            <div class="menu-item">
+              <div>
+                <strong>Mini Meal Box</strong>
+                <p>Rice, sambar, rasam, poriyal, pickle, and one curry choice.</p>
+                <div class="tag-row"><span class="tag soft">Best Value</span><span class="tag green">🌿/🌶️ Choice</span></div>
+              </div>
+              <div class="price">₹149</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Family Curry Pack</strong>
+                <p>Larger portion for 4 to 6 people with rice-friendly gravy pairing.</p>
+                <div class="tag-row"><span class="tag gold">Family Pack</span><span class="tag soft">Bulk Order</span></div>
+              </div>
+              <div class="price">₹499</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Rice + Curry Combo</strong>
+                <p>One curry with steamed rice, ideal for office lunch and takeaway.</p>
+                <div class="tag-row"><span class="tag soft">Quick Lunch</span><span class="tag soft">Popular</span></div>
+              </div>
+              <div class="price">₹109</div>
+            </div>
+            <div class="menu-item">
+              <div>
+                <strong>Weekend Feast Pack</strong>
+                <p>Special mix of curries and sides for Sunday family dining.</p>
+                <div class="tag-row"><span class="tag green">Weekend Deal</span><span class="tag gold">Promo</span></div>
+              </div>
+              <div class="price">₹799</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap reveal">
+        <div class="promo surface">
+          <div class="tag-row" style="margin-bottom:12px;">
+            <span class="tag gold">Festival Promo</span>
+            <span class="tag red">Sunday Bulk Discount</span>
+            <span class="tag green">Family Orders</span>
+          </div>
+          <h4>Special Offers & Festival Promos</h4>
+          <p>
+            Sunday bulk orders get a 10% discount on pre-booked family packs above 5 portions.
+            Free sambar with 3 curry purchases for lunch takeaways.
+            Festival meals, office subscriptions, and custom catering can be slotted in here.
+            <!-- Edit this text to reflect your real offers and timing. -->
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div>
+            <h3>Why Choose Us</h3>
+            <p>Trust cues that help a first-time local customer feel confident enough to order immediately.</p>
+          </div>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-card">
+            <strong>Home-ground spices</strong>
+            <p>Balanced, aromatic masalas prepared for authentic Tamil Nadu flavor.</p>
+          </div>
+          <div class="trust-card">
+            <strong>No artificial colors</strong>
+            <p>Natural color, natural taste, and a more honest daily-cooked menu.</p>
+          </div>
+          <div class="trust-card">
+            <strong>Pure sesame / peanut oil</strong>
+            <p>Traditional cooking oils used thoughtfully for rich flavor and comfort.</p>
+          </div>
+          <div class="trust-card">
+            <strong>Hygiene guaranteed</strong>
+            <p>Small-batch preparation with clean handling, packing, and delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div>
+            <h3>Customer Reviews</h3>
+            <p>Short, credible reviews are enough for a local merchant site. These can be replaced with real testimonials later.</p>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="review-meta"><div class="avatar">R</div><div><strong>Ramesh</strong><span>Neighborhood customer</span></div></div>
+            <blockquote>“The Chettinad chicken curry tastes like home. The delivery was quick and the portion was generous.”</blockquote>
+          </article>
+          <article class="review-card">
+            <div class="review-meta"><div class="avatar">P</div><div><strong>Priya</strong><span>Office lunch buyer</span></div></div>
+            <blockquote>“Very clean packaging, real Tamil flavor, and the mini meal box is perfect for lunch.”</blockquote>
+          </article>
+          <article class="review-card">
+            <div class="review-meta"><div class="avatar">S</div><div><strong>Selvam</strong><span>Family order</span></div></div>
+            <blockquote>“We ordered the family pack for Sunday. Everything was fresh and the kulambu was excellent.”</blockquote>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap contact-grid reveal">
+        <div class="contact-card">
+          <div class="section-head" style="margin-bottom: 12px;">
+            <div>
+              <h3>Contact & Ordering</h3>
+              <p>Make calling, WhatsApp ordering, and location lookup effortless.</p>
+            </div>
+          </div>
+          <div class="cta-stack">
+            <!-- Edit phone number below. -->
+            <a class="btn btn-primary" href="tel:+919876543210">📞 Call Now</a>
+            <!-- Edit WhatsApp number and message below. -->
+            <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20please%20share%20today%27s%20menu%20and%20prices." target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=Annapoorna%20Homemade%20Curry%20Point%20Tamil%20Nadu" target="_blank" rel="noopener">📍 Open Maps</a>
+          </div>
+          <div class="hours-list">
+            <div class="hours-row"><div><strong>Lunch</strong><span>11:00 AM - 2:30 PM</span></div><div class="tag green">Hot & Ready</div></div>
+            <div class="hours-row"><div><strong>Dinner</strong><span>6:30 PM - 9:30 PM</span></div><div class="tag red">Fresh batches</div></div>
+            <div class="hours-row"><div><strong>Advance Orders</strong><span>Accepted through WhatsApp</span></div><div class="tag gold">Bulk friendly</div></div>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <div class="section-head" style="margin-bottom: 12px;">
+            <div>
+              <h3>Location & Map</h3>
+              <p>Update the embedded map query with your exact address once finalized.</p>
+            </div>
+          </div>
+          <!-- Edit the map query below to your real location/address. -->
+          <iframe class="map-frame" title="Google Maps location" src="https://www.google.com/maps?q=Annapoorna%20Homemade%20Curry%20Point%20Tamil%20Nadu&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="payment-card">
+          <div class="section-head" style="margin-bottom: 12px;">
+            <div>
+              <h3>UPI Payment QR</h3>
+              <p>Use this as a placeholder card until you add the actual QR image.</p>
+            </div>
+          </div>
+          <div class="payment-qr" aria-label="UPI QR code placeholder">
+            <div class="qr-core">
+              <div>
+                <strong>UPI QR</strong>
+                <span>Replace with Paytm / PhonePe / Google Pay QR image or code.</span>
+              </div>
+            </div>
+          </div>
+          <div class="tag-row" style="margin-top:14px;">
+            <span class="tag green">Paytm</span>
+            <span class="tag soft">PhonePe</span>
+            <span class="tag gold">Google Pay</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-cta" aria-label="Quick order actions">
+    <a class="btn btn-primary" href="tel:+919876543210">📞 Call</a>
+    <a class="btn btn-secondary" href="https://wa.me/919876543210?text=Hello%20Annapoorna%20Homemade%20Curry%20Point%2C%20I%27d%20like%20to%20order%20today." target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Annapoorna Homemade Curry Point. A motion-led, mobile-first Tamil Nadu curry point website.</p>
+    </div>
+  </footer>
+
+  <script>
+    const specials = [
+      {
+        name: "Chettinad Chicken Curry",
+        title: "Chettinad Chicken Curry",
+        desc: "Deep-roasted spice blend, curry leaves, and a slow-cooked gravy that pairs beautifully with parotta, rice, or idiyappam.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+        status: "🟢 Cooking Fresh Batches Now",
+        tags: ["⭐ Chef's Special", "🌶️ Spicy", "Best Seller"]
+      },
+      {
+        name: "Meen Kulambu",
+        title: "Meen Kulambu",
+        desc: "Tangy tamarind fish curry with fresh spices and a clean, homely finish for rice meals.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+        status: "🟠 Hot & Ready",
+        tags: ["🌶️ Spicy", "Fresh Catch", "Today’s Special"]
+      },
+      {
+        name: "Ennai Kathirikai Kulambu",
+        title: "Ennai Kathirikai Kulambu",
+        desc: "Stuffed brinjal curry with sesame notes, bold masala, and a rich, comforting finish.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+        status: "🟢 Fresh Batch Available",
+        tags: ["🌿 Pure Veg", "⭐ Signature", "Tangy"]
+      },
+      {
+        name: "Mutton Chukka",
+        title: "Mutton Chukka",
+        desc: "Dry-style pepper roast with high aroma and a bold finishing masala that customers remember.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+        status: "🟡 Limited Quantity",
+        tags: ["🌶️ Spicy", "⭐ Chef's Special", "Premium"]
+      }
+    ];
+
+    const specialName = document.getElementById("specialName");
+    const specialDesc = document.getElementById("specialDesc");
+    const specialTitle = document.getElementById("specialTitle");
+    const specialCopy = document.getElementById("specialCopy");
+    const specialImage = document.getElementById("specialImage");
+    const specialTags = document.getElementById("specialOverlayTags");
+    const specialStatus = document.getElementById("specialStatus");
+    const kitchenStatus = document.getElementById("kitchenStatus");
+    const specialNext = document.getElementById("specialNext");
+    const specialPrev = document.getElementById("specialPrev");
+    const scrollProgress = document.getElementById("scrollProgress");
+    const year = document.getElementById("year");
+    const heroVisual = document.getElementById("heroVisual");
+    const storyRail = document.getElementById("storyRail");
+
+    let currentIndex = 0;
+
+    function tagClass(tag) {
+      if (tag.includes("🌿")) return "green";
+      if (tag.includes("⭐") || tag.includes("Best") || tag.includes("Signature")) return "gold";
+      if (tag.includes("🌶️")) return "red";
+      return "soft";
+    }
+
+    function renderSpecial(index) {
+      const item = specials[index];
+      specialName.textContent = item.name;
+      specialDesc.textContent = item.desc;
+      specialTitle.textContent = item.title;
+      specialCopy.textContent = item.desc;
+      specialImage.src = item.image;
+      specialStatus.textContent = item.status;
+      kitchenStatus.textContent = item.status;
+      specialTags.innerHTML = item.tags.map(tag => `<span class="tag ${tagClass(tag)}">${tag}</span>`).join("");
+    }
+
+    function nextSpecial(step = 1) {
+      currentIndex = (currentIndex + step + specials.length) % specials.length;
+      renderSpecial(currentIndex);
+    }
+
+    specialNext.addEventListener("click", () => nextSpecial(1));
+    specialPrev.addEventListener("click", () => nextSpecial(-1));
+    renderSpecial(currentIndex);
+
+    setInterval(() => nextSpecial(1), 6500);
+
+    const revealTargets = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.16 });
+    revealTargets.forEach((target) => observer.observe(target));
+
+    function updateProgress() {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+      scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    }
+
+    function parallax() {
+      const rect = heroVisual.getBoundingClientRect();
+      const offset = Math.max(-1, Math.min(1, (rect.top + rect.height * 0.2) / window.innerHeight));
+      heroVisual.querySelectorAll("[data-parallax]").forEach((layer) => {
+        const depth = Number(layer.getAttribute("data-parallax")) || 0.1;
+        layer.style.transform = `translate3d(0, ${offset * depth * -34}px, 0) rotate(${7 + offset * 0.8}deg)`;
+      });
+    }
+
+    window.addEventListener("scroll", () => { updateProgress(); parallax(); }, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
+    parallax();
+
+    heroVisual.addEventListener("pointermove", (event) => {
+      const bounds = heroVisual.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      heroVisual.style.transform = `perspective(1400px) rotateX(${y * -3.5}deg) rotateY(${x * 3.5}deg)`;
+    });
+
+    heroVisual.addEventListener("pointerleave", () => {
+      heroVisual.style.transform = "perspective(1400px) rotateX(0deg) rotateY(0deg)";
+    });
+
+    document.querySelectorAll("[data-scroll-left]").forEach((button) => {
+      button.addEventListener("click", () => storyRail.scrollBy({ left: -360, behavior: "smooth" }));
+    });
+    document.querySelectorAll("[data-scroll-right]").forEach((button) => {
+      button.addEventListener("click", () => storyRail.scrollBy({ left: 360, behavior: "smooth" }));
+    });
+
+    year.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
